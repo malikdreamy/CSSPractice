@@ -1,0 +1,103 @@
+:root{
+    --main-radius: 5px;
+    --main-padding:5px;
+}
+
+.container{
+display: grid;
+height: 100vh; /* makes the container 100% of the screen*/
+/* grid-template-columns: minmax(100px, 1fr) 1fr 1fr 1fr; /*sets the columns each to 1 fraction of screen on y axis */
+/* minmax() takes the minimum and max size the column should be on resize. so the min size would be 100px and max size is 1fr*/
+/* grid-template-rows: 0.2fr 1fr 1fr 0.2fr; /*sets the rows sizes*/
+
+grid-template-rows: repeat(4, 100px);
+grid-template-columns: repeat(auto-fit , minmax(300px, 1fr)); /* autofit ensures the page doesnt break and content gets wrapped onto the next line*/
+/* grid-template: ; */
+/* grid-template-areas: "nav nav nav nav" 
+"sidebar main main main"
+"sidebar content1 content2 content3"
+"footer footer footer footer"
+; */
+/* above you define how you want the area to look*/
+grid-gap: 0.5rem; /* adds a gap between elements of 0.2em*/
+text-align: center;
+}
+
+nav{
+   
+    background-color: aqua;
+    /* grid-area: nav; */
+    /* above define the grid-area name */
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding); /* makes the padding and radius the root variable at top*/
+ height: 50px;
+grid-column: 1 / 4;
+   
+}
+
+main{
+    background-color: aquamarine;
+    /* grid-area: main; */
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+   /* grid-row: span 2; /* tells element to span two rows and three columns*/
+    grid-column: span 3;
+
+    
+}
+
+#sidebar {
+    background-color: yellow;
+    grid-area: sidebar;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+   /* grid-row: 2 / 2; /* this sets the grid rows, 1 is the starting pint and 3 is the ending point*/
+    /*grid-column: 1 /3; /* this sets the grid columns, 1 is the starting pint and 4 is the ending point*/
+}
+
+
+#content1{
+    background-color: chartreuse;
+    /* grid-area: content1; */
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding)
+
+}
+
+#content2{
+    background-color: cadetblue;
+    /* grid-area: content2; */
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding)
+}
+
+#content3{
+    background-color: turquoise;
+    /* grid-area: content3; */
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding)
+}
+
+footer{
+    background-color: darkturquoise;
+    /* grid-area: footer; */
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+    /* grid-row: 4/4 ;
+    grid-column: 1/7; */
+}
+
+/* @media only screen and (max-width: 600px){
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1fr;
+        grid-template-areas: 
+        "nav"
+        "sidebar"
+        "main"
+        "content1"
+        "content2"
+        "content3"
+        "footer";
+    }
+} */
